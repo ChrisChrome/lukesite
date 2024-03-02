@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<script src="/js/jquery.min.js"></script>
+	<script>
+		// If ?success=true, show an alert that says "Message sent successfully"
+		// If ?success=false, show an alert that says "Message failed to send"
+
+		// Get the URL parameters
+		const urlParams = new URLSearchParams(window.location.search);
+		const success = urlParams.get('success');
+
+		// If success is true, pop up a modal that says "Message sent successfully"
+		if (success === 'true') {
+			alert('Message sent successfully');
+		}
+	</script>
+	<title>Carolina Siren Company - Contact</title>
+</head>
+
+<body>
+	<!-- Navbar Start -->
+	<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+		<div class="container-fluid">
+			<!-- <a class="navbar-brand" href="#">Navbar</a> -->
+			<!-- Use logo image as navbar-brand, also some text -->
+			<a class="navbar-brand" href="#">
+				<img src="/images/logo.png" alt="logo" width="64" height="64">
+				<span class="text-white">Carolina Siren Company</span>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+				aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarColor01">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/contact">Contact
+							<span class="visually-hidden">(current)</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- End Navbar | Begin Content -->
+
+	<!-- Make a contact form that asks for name, email and message, that posts to /scripts/contactus.php -->
+</br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<h1 class="text-center">Contact Us</h1>
+				<form action="/api/contact" method="post">
+					<div class="mb-3">
+						<label for="name" class="form-label">Name</label>
+						<input type="text" class="form-control" id="name" name="name" required>
+					</div>
+					<div class="mb-3">
+						<label for="email" class="form-label">Email</label>
+						<input type="email" class="form-control" id="email" name="email" required>
+					</div>
+					<div class="mb-3">
+						<label for="message" class="form-label">Message</label>
+						<textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	
+
+</body>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+</html>
