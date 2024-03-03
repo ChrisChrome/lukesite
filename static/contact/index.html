@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 	<script src="/js/jquery.min.js"></script>
 	<script>
 		// If ?success=true, show an alert that says "Message sent successfully"
@@ -17,6 +18,13 @@
 		// If success is true, pop up a modal that says "Message sent successfully"
 		if (success === 'true') {
 			alert('Message sent successfully');
+		} else {
+			const error = urlParams.get('error');
+			switch (error) {
+				case "captcha":
+					alert("Captcha failed, please try again");
+					break;
+			}
 		}
 	</script>
 	<title>Carolina Siren Company - Contact</title>
@@ -70,6 +78,10 @@
 					<div class="mb-3">
 						<label for="message" class="form-label">Message</label>
 						<textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+					</div>
+					<!-- hcaptcha -->
+					<div class="mb-3">
+						<div class="h-captcha" data-sitekey="2b6f41ff-26b0-4d64-810c-7ad0c4635968"></div>
 					</div>
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
